@@ -12,8 +12,8 @@ export const createToken = payload => {
 export const verifyToken = token => {
     try {
         const data = jwt.verify(token, JWT_SECRET);
-        return {data};
+        return {data, error: null};
     } catch (error) {
-        return error;
+        return {data: null, error};
     }
 }
